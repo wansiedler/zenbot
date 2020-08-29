@@ -41,3 +41,7 @@ gen.*.sh
 scripts/auto_backtester/backtesting_*.csv
 database/*
 .vscode/
+
+
+# Ignore DevSpace cache and log folder
+.devspace/

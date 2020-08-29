@@ -18,6 +18,9 @@ COPY --chown=node --from=builder /app/dist /app/dist/
 
 USER node
 ENV NODE_ENV production
+ENV ZENBOT_MONGODB_HOST mongodb.zenbot.svc.cluster.local
+ENV ZENBOT_MONGO_USERNAME admin
+ENV ZENBOT_MONGO_PASSWORD 3hwF0MCeEZ
 
 ENTRYPOINT ["/usr/local/bin/zenbot"]
 CMD ["trade","--paper"]

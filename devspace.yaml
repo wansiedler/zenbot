@@ -1,0 +1,40 @@
+version: v1beta9
+images:
+  app:
+    image: apwansiedler/zenbot
+    preferSyncOverRebuild: true
+    injectRestartHelper: true
+    appendDockerfileInstructions:
+    - USER root
+deployments:
+- name: zenbot
+  helm:
+    componentChart: true
+    values:
+      containers:
+      - image: apwansiedler/zenbot
+dev:
+  sync:
+  - imageName: app
+    excludePaths:
+    - .git/
+    uploadExcludePaths:
+    - node_modules
+    - data
+    - database
+    - simulations/*
+    - docs
+    - docker-compose*
+    - Dockerfile
+    - '*.md'
+    - .dockerignore
+    - devspace.yaml
+    onUpload:
+      restartContainer: true
+profiles:
+- name: production
+  patches:
+  - op: remove
+    path: images.app.injectRestartHelper
+  - op: remove
+    path: images.app.appendDockerfileInstructions
