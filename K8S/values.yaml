@@ -1,0 +1,9 @@
+# Change these values to the ones you want.
+auth:
+  enabled: false
+#  rootPassword: 6nkrarznt3lvrf9cyhydoqmbosl6xq
+#  username: cqzzqxnoaoy35fdx0l2pqruyywbdx1
+#  password: 6nkrarznt3lvrf9cyhydoqmbosl6xq
+#postgresqlDatabase: cryptoman
+
+
